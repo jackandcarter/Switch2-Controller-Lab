@@ -9,7 +9,8 @@ The project has three parts:
   initialization, HID decoding, and localhost streaming.
 - `Switch2ControllerLabUnity`: a Unity 6 package that receives the localhost
   stream and exposes a virtual Unity Input System `Gamepad`.
-- `Switch2ControllerLabApp`: the planned macOS GUI app and installer wrapper.
+- `Switch2ControllerLabApp`: a SwiftUI macOS app that wraps the helper and
+  provides the future installer target.
 
 This project is not affiliated with Nintendo.
 
@@ -25,12 +26,16 @@ Working:
 - The Unity package receives UDP packets and queues `GamepadState` events into
   the Unity Input System.
 
-Planned:
+Included app prototype:
 
 - SwiftUI macOS status app.
 - Live controller diagram.
 - App-managed Unity bridge start/stop.
 - Optional mouse mode for pointer, click, and scroll control.
+
+Planned:
+
+- Saved app settings and profiles.
 - Local `.app` and `.pkg` packaging.
 
 ## Supported Environment
@@ -195,19 +200,30 @@ The helper sends one JSON object per UDP datagram:
 }
 ```
 
-## macOS App Roadmap
+## macOS App
 
-The planned app should wrap the native helper into a SwiftUI user interface:
+The SwiftUI app wraps the native helper into a user interface:
 
 - Connection and handshake status.
 - Live button/stick/trigger visualization.
 - Unity bridge port and streaming controls.
 - Optional mouse mode with configurable stick, click, and scroll mappings.
-- Local app packaging, then installer packaging.
+- Local app packaging.
 
-The first GUI version should reuse the native helper core. System-wide virtual
-gamepad support is intentionally deferred because it requires a much more
-complex DriverKit/system-extension path.
+Build it with:
+
+```sh
+Switch2ControllerLabApp/build_app.sh
+```
+
+The app bundle is written to:
+
+```text
+Switch2ControllerLabApp/dist/Switch2 Controller Lab.app
+```
+
+System-wide virtual gamepad support is intentionally deferred because it
+requires a much more complex DriverKit/system-extension path.
 
 ## License
 
