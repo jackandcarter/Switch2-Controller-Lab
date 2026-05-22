@@ -1,0 +1,27 @@
+{
+  "name": "com.switch2controllerlab.unitybridge",
+  "version": "0.1.0",
+  "displayName": "Switch2 Controller Lab",
+  "description": "Receives localhost packets from the Switch2 Controller Lab macOS helper and exposes them as a virtual Unity Input System Gamepad.",
+  "unity": "6000.0",
+  "dependencies": {
+    "com.unity.inputsystem": "1.8.0"
+  },
+  "keywords": [
+    "input",
+    "controller",
+    "switch",
+    "gamepad",
+    "switch2-controller-lab"
+  ],
+  "author": {
+    "name": "Switch2 Controller Lab"
+  },
+  "samples": [
+    {
+      "displayName": "Debug Overlay",
+      "description": "A lightweight IMGUI overlay showing bridge status and live controller values.",
+      "path": "Samples~/DebugOverlay"
+    }
+  ]
+}
